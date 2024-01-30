@@ -2,8 +2,8 @@ import "express-async-errors";
 
 import express from "express";
 import bodyParser from "body-parser";
-import { notFoundHandler } from "../middleware/notFoundHandler";
-import { errorHandler } from "../middleware/errorHandler";
+import notFoundHandler from "./middleware/notFoundHandler.middleware.js";
+import errorHandler from "./middleware/errorHandler.middleware.js";
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -20,5 +20,5 @@ app.use(notFoundHandler); // Not found middleware. It will get triggered when us
 app.use(errorHandler); // Error handler middleware. It will get triggered when any error is encounterd in our app.
 
 app.listen(PORT, () => {
-  console.log(`Server started successfully in ${PORT}`);
+  console.log(`Server started successfully in http://localhost:${PORT}`);
 });
